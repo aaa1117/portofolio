@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayman Bilal — Blue Team / Security Engineering</title>
+  <meta name="description" content="Ayman Mohamed Zakieldin Bilal — third-year cybersecurity student focused on SIEM engineering, threat detection, honeypots, and Linux security automation." />
+  <meta name="author" content="Ayman Mohamed Zakieldin Bilal" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ayman Bilal — Blue Team / Security Engineering" />
+  <meta property="og:description" content="SIEM engineering · threat detection · honeypots · Linux security automation." />
+  <meta property="og:type" content="website" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Background grid layer -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="top">
+    <div class="nav__inner">
+      <a href="#top" class="brand" aria-label="Home">
+        <span class="brand__mark">AB</span>
+        <span class="brand__dot">_</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">about</a>
+        <a href="#skills">skills</a>
+        <a href="#projects">projects</a>
+        <a href="#experience">experience</a>
+        <a href="#contact">contact</a>
+        <a href="assets/resume.pdf" class="btn btn--small" download>Download CV</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container">
+        <div class="terminal" role="img" aria-label="Terminal window introducing Ayman Bilal, Blue Team / Security Engineering Student based in Abu Dhabi, UAE and Ankara, Turkey.">
+          <div class="terminal__bar">
+            <span class="dot dot--red"></span>
+            <span class="dot dot--yellow"></span>
+            <span class="dot dot--green"></span>
+            <span class="terminal__title">ayman@bluteam: ~</span>
+          </div>
+          <div class="terminal__body">
+            <p class="line"><span class="prompt">visitor@portfolio</span><span class="sep">:</span><span class="path">~</span><span class="dollar">$</span> <span id="typed" class="typed"></span><span class="cursor" id="cursor" aria-hidden="true">█</span></p>
+            <div class="terminal__output" id="output" hidden>
+              <p><span class="key">name</span>      : Ayman Mohamed Zakieldin Bilal</p>
+              <p><span class="key">role</span>      : Blue Team / Security Engineering Student</p>
+              <p><span class="key">focus</span>     : SIEM · Threat Detection · Log Pipelines</p>
+              <p><span class="key">location</span>  : Abu Dhabi, UAE · Ankara, Turkey</p>
+              <p><span class="key">status</span>    : <span class="status-open">open to junior security roles</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__cta">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="assets/resume.pdf" class="btn btn--ghost" download>Download CV</a>
+          <a href="https://github.com/aaa1117" class="icon-link" target="_blank" rel="noopener" aria-label="GitHub profile">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">01.</span> about</h2>
+        <div class="about">
+          <p>
+            I'm a third-year cybersecurity student building a career in
+            <strong>blue-team security engineering</strong>. My work centers on
+            turning raw, noisy logs into clear signal — designing SIEM pipelines,
+            tuning detections, and standing up the infrastructure that keeps a
+            network observable and defensible.
+          </p>
+          <p>
+            I like working close to the metal: Linux administration, log
+            collection pipelines, authentication and access control, and
+            automating the repetitive parts of security operations with Python
+            and Bash. Right now I'm deepening my work on scalable log ingestion
+            with Apache Kafka and hands-on threat detection.
+          </p>
+          <ul class="stats">
+            <li><span class="stats__num">3rd</span><span class="stats__label">year · Software Engineering</span></li>
+            <li><span class="stats__num">3</span><span class="stats__label">security projects shipped</span></li>
+            <li><span class="stats__num">SIEM</span><span class="stats__label">log analysis &amp; detection</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">02.</span> skills</h2>
+        <div class="skills">
+          <div class="skill-group">
+            <h3 class="skill-group__title">// security</h3>
+            <ul class="tags">
+              <li>SIEM Architecture</li>
+              <li>Log Analysis</li>
+              <li>Threat Detection</li>
+              <li>Honeypot Development</li>
+              <li>Authentication &amp; Access Control</li>
+              <li>Security Monitoring</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title">// tools &amp; platforms</h3>
+            <ul class="tags">
+              <li>Kali Linux</li>
+              <li>Parrot OS</li>
+              <li>Manjaro</li>
+              <li>Apache Kafka</li>
+              <li>Keycloak</li>
+              <li>Odoo</li>
+              <li>Server Setup</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title">// programming</h3>
+            <ul class="tags">
+              <li>Python</li>
+              <li>Bash Scripting</li>
+              <li>Regular Expressions</li>
+              <li>API Integration</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title">// networking &amp; systems</h3>
+            <ul class="tags">
+              <li>Linux Administration</li>
+              <li>SSH</li>
+              <li>TCP/IP</li>
+              <li>Log Collection Pipelines</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">03.</span> projects</h2>
+        <div class="projects">
+
+          <article class="card">
+            <div class="card__head">
+              <svg class="card__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 13h4l2 5 4-14 2 9h6"/></svg>
+              <a href="https://github.com/aaa1117" class="card__link" target="_blank" rel="noopener" aria-label="View SIEM System on GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+              </a>
+            </div>
+            <h3 class="card__title">SIEM System</h3>
+            <p class="card__desc">
+              An open-source SIEM for centralized log monitoring and security
+              event analysis. Built the log collection layer, worked through
+              event correlation, and focused the design on improving visibility
+              and threat detection across network infrastructure.
+            </p>
+            <ul class="card__tags">
+              <li>Log Collection</li>
+              <li>Event Correlation</li>
+              <li>Threat Detection</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <svg class="card__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/></svg>
+              <a href="https://github.com/aaa1117" class="card__link" target="_blank" rel="noopener" aria-label="View Honeypot on GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+              </a>
+            </div>
+            <h3 class="card__title">Network Honeypot</h3>
+            <p class="card__desc">
+              A honeypot deployed inside the network to lure and observe
+              attackers — capturing intrusion attempts and turning them into
+              early-warning signal for defenders, and a safe lab for studying
+              real adversary behavior.
+            </p>
+            <ul class="card__tags">
+              <li>Deception</li>
+              <li>Intrusion Detection</li>
+              <li>Network Security</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__head">
+              <svg class="card__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="7" cy="7" r="1.4" fill="currentColor" stroke="none"/><circle cx="11" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="9" cy="17" r="1.4" fill="currentColor" stroke="none"/></svg>
+              <a href="https://github.com/aaa1117" class="card__link" target="_blank" rel="noopener" aria-label="View Kafka log pipeline on GitHub">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+              </a>
+            </div>
+            <h3 class="card__title">Kafka Log Pipeline</h3>
+            <p class="card__desc">
+              A centralized log-processing pipeline built on Apache Kafka for
+              scalable ingestion and analysis. Focused on log organization,
+              real-time event visibility, and automation models for efficient
+              security event processing.
+            </p>
+            <ul class="card__tags">
+              <li>Apache Kafka</li>
+              <li>Log Ingestion</li>
+              <li>Real-time Monitoring</li>
+            </ul>
+            <span class="card__badge">in progress</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EXPERIENCE ===== -->
+    <section id="experience" class="section reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">04.</span> experience</h2>
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__meta">
+              <span class="timeline__date">09/2025 – 07/2026</span>
+              <span class="timeline__place">Ankara, Turkey</span>
+            </div>
+            <h3 class="timeline__role">Junior Software Developer Intern</h3>
+            <ul class="timeline__points">
+              <li>Assisted in Linux server administration and infrastructure troubleshooting.</li>
+              <li>Worked with Odoo-based systems and backend integrations.</li>
+              <li>Supported authentication and access management workflows.</li>
+              <li>Participated in technical problem-solving and deployment tasks.</li>
+              <li>Collaborated with development teams to improve system functionality and operational workflows.</li>
+              <li>Gained hands-on experience with infrastructure management, networking, and system support.</li>
+            </ul>
+          </div>
+        </div>
+
+        <h2 class="section__title section__title--sub"><span class="section__num">05.</span> education</h2>
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__meta">
+              <span class="timeline__date">09/2022 – 07/2026</span>
+              <span class="timeline__place">Ankara, Turkey</span>
+            </div>
+            <h3 class="timeline__role">B.Sc. Software Engineering</h3>
+            <p class="timeline__place-name">Ostim Technical University</p>
+            <p class="timeline__points">Undergraduate student pursuing a bachelor's degree in Software Engineering, specializing in cybersecurity and security operations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section section--contact reveal">
+      <div class="container">
+        <h2 class="section__title"><span class="section__num">06.</span> contact</h2>
+        <p class="contact__lead">
+          Open to junior <strong>blue-team / security engineering</strong> roles
+          and internships. If you're building a security team, let's talk.
+        </p>
+        <div class="contact__links">
+          <a href="mailto:aymanmomdd@gmail.com" class="contact__item">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+            aymanmomdd@gmail.com
+          </a>
+          <a href="tel:+905057737807" class="contact__item">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+            +90 505 773 7807
+          </a>
+          <a href="https://github.com/aaa1117" class="contact__item" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+            github.com/aaa1117
+          </a>
+        </div>
+        <a href="mailto:aymanmomdd@gmail.com" class="btn btn--large">Get in touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year"></span> Ayman Mohamed Zakieldin Bilal</p>
+      <p class="footer__built">built with plain HTML, CSS &amp; JS · defended with coffee</p>
+      <a href="#top" class="footer__top" aria-label="Back to top">↑ top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

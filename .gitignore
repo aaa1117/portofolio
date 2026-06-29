@@ -1,0 +1,7 @@
+# Local tooling / editor config — not part of the portfolio
+.claude/
+docs/
+
+# OS / misc
+.DS_Store
+Thumbs.db
