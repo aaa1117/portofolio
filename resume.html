@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayman Bilal — Résumé</title>
+  <meta name="description" content="Résumé of Ayman Mohamed Zakieldin Bilal — Software Engineering graduate and blue-team security engineer (SIEM, threat detection, honeypots, Linux security automation)." />
+  <meta name="author" content="Ayman Mohamed Zakieldin Bilal" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --paper:   #ffffff;
+      --ink:     #1f2937;
+      --muted:   #64748b;
+      --heading: #0f172a;
+      --accent:  #0e7490;  /* cyan-700 — on-brand, prints cleanly */
+      --accent-2:#047857;  /* green-700 */
+      --border:  #e2e8f0;
+      --chip:    #f1f5f9;
+      --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: #eef2f7;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      padding: 32px 16px 64px;
+    }
+
+    /* Floating "Save as PDF" control (screen only) */
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: #fff;
+      background: var(--accent);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 22px -10px rgba(14, 116, 144, 0.8);
+      transition: transform .15s ease, background .15s ease;
+    }
+    .print-btn:hover { transform: translateY(-1px); background: #0b5e74; }
+
+    /* The A4 "paper" */
+    .resume {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 24px 60px -28px rgba(15, 23, 42, 0.35);
+      padding: 44px 48px 48px;
+    }
+
+    /* Header */
+    .r-head { border-bottom: 2px solid var(--border); padding-bottom: 18px; margin-bottom: 22px; }
+    .r-head h1 {
+      font-size: 1.95rem;
+      letter-spacing: -0.4px;
+      color: var(--heading);
+      line-height: 1.15;
+    }
+    .r-role {
+      font-family: var(--mono);
+      font-size: 0.95rem;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .r-contact {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      margin-top: 14px;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .r-contact a { color: var(--muted); text-decoration: none; }
+    .r-contact a:hover { color: var(--accent); }
+    .r-contact li { display: flex; align-items: center; gap: 6px; }
+    .r-contact svg { color: var(--accent); flex-shrink: 0; }
+
+    /* Sections */
+    .r-section { margin-top: 24px; }
+    .r-section > h2 {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent-2);
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+    .r-summary { font-size: 0.94rem; color: var(--ink); }
+
+    /* Skills — two columns */
+    .r-skills {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 28px;
+    }
+    .r-skillgroup h3 {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--heading);
+      margin-bottom: 8px;
+    }
+    .r-skillgroup h3::before { content: "// "; color: var(--accent); }
+    .r-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+    .r-chips li {
+      font-family: var(--mono);
+      font-size: 0.74rem;
+      color: var(--ink);
+      background: var(--chip);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 3px 9px;
+    }
+
+    /* Experience / Education entries */
+    .r-entry { margin-bottom: 18px; }
+    .r-entry:last-child { margin-bottom: 0; }
+    .r-entry__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .r-entry__role { font-size: 1rem; font-weight: 600; color: var(--heading); }
+    .r-entry__date {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+    .r-entry__place {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--accent);
+      margin-top: 2px;
+      margin-bottom: 8px;
+    }
+    .r-points { list-style: none; }
+    .r-points li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+    }
+    .r-points li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* Projects */
+    .r-project { margin-bottom: 10px; font-size: 0.9rem; }
+    .r-project:last-child { margin-bottom: 0; }
+    .r-project__name { font-weight: 600; color: var(--heading); }
+    .r-project__tag {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--accent-2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ---- Print ---- */
+    @page { size: A4; margin: 14mm; }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .no-print { display: none !important; }
+      .resume {
+        max-width: none;
+        margin: 0;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+      }
+      .r-section { break-inside: avoid; }
+      .r-entry, .r-project, .r-skillgroup { break-inside: avoid; }
+      a { color: inherit; }
+      :root { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-btn no-print" id="printBtn" type="button">⤓ Save as PDF</button>
+
+  <main class="resume">
+    <header class="r-head">
+      <h1>Ayman Mohamed Zakieldin Bilal</h1>
+      <p class="r-role">Blue Team / Security Engineer · Software Engineering Graduate</p>
+      <ul class="r-contact">
+        <li>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          <a href="mailto:aymanmomdd@gmail.com">aymanmomdd@gmail.com</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
+          <a href="tel:+905057737807">+90 505 773 7807</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+          <a href="https://github.com/aaa1117" target="_blank" rel="noopener">github.com/aaa1117</a>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Abu Dhabi, UAE · Ankara, Turkey
+        </li>
+      </ul>
+    </header>
+
+    <section class="r-section">
+      <h2>Summary</h2>
+      <p class="r-summary">
+        Software Engineering graduate building a career in blue-team security engineering. I turn
+        noisy, raw logs into clear signal — designing SIEM pipelines, tuning detections, and standing
+        up the infrastructure that keeps a network observable and defensible. Comfortable working close
+        to the metal: Linux administration, log-collection pipelines, authentication and access control,
+        and automating the repetitive parts of security operations with Python and Bash. Currently
+        deepening work on scalable log ingestion with Apache Kafka and hands-on threat detection.
+      </p>
+    </section>
+
+    <section class="r-section">
+      <h2>Skills</h2>
+      <div class="r-skills">
+        <div class="r-skillgroup">
+          <h3>security</h3>
+          <ul class="r-chips">
+            <li>SIEM Architecture</li>
+            <li>Log Analysis</li>
+            <li>Threat Detection</li>
+            <li>Honeypot Development</li>
+            <li>Authentication &amp; Access Control</li>
+            <li>Security Monitoring</li>
+          </ul>
+        </div>
+        <div class="r-skillgroup">
+          <h3>tools &amp; platforms</h3>
+          <ul class="r-chips">
+            <li>Kali Linux</li>
+            <li>Parrot OS</li>
+            <li>Manjaro</li>
+            <li>Apache Kafka</li>
+            <li>Keycloak</li>
+            <li>Odoo</li>
+            <li>Server Setup</li>
+          </ul>
+        </div>
+        <div class="r-skillgroup">
+          <h3>programming</h3>
+          <ul class="r-chips">
+            <li>Python</li>
+            <li>Bash Scripting</li>
+            <li>Regular Expressions</li>
+            <li>API Integration</li>
+          </ul>
+        </div>
+        <div class="r-skillgroup">
+          <h3>networking &amp; systems</h3>
+          <ul class="r-chips">
+            <li>Linux Administration</li>
+            <li>SSH</li>
+            <li>TCP/IP</li>
+            <li>Log Collection Pipelines</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="r-section">
+      <h2>Experience</h2>
+      <div class="r-entry">
+        <div class="r-entry__top">
+          <span class="r-entry__role">Junior Software Developer Intern</span>
+          <span class="r-entry__date">09/2025 – 07/2026</span>
+        </div>
+        <p class="r-entry__place">Ankara, Turkey</p>
+        <ul class="r-points">
+          <li>Assisted in Linux server administration and infrastructure troubleshooting.</li>
+          <li>Worked with Odoo-based systems and backend integrations.</li>
+          <li>Supported authentication and access-management workflows.</li>
+          <li>Participated in technical problem-solving and deployment tasks.</li>
+          <li>Collaborated with development teams to improve system functionality and operational workflows.</li>
+          <li>Gained hands-on experience with infrastructure management, networking, and system support.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="r-section">
+      <h2>Projects</h2>
+      <div class="r-project">
+        <span class="r-project__name">SIEM System</span> —
+        open-source SIEM for centralized log monitoring and security-event analysis; built the
+        log-collection layer and worked through event correlation to improve visibility and threat
+        detection across network infrastructure.
+      </div>
+      <div class="r-project">
+        <span class="r-project__name">Network Honeypot</span> —
+        honeypot deployed inside the network to lure and observe attackers, turning intrusion attempts
+        into early-warning signal and a safe lab for studying real adversary behavior.
+      </div>
+      <div class="r-project">
+        <span class="r-project__name">Kafka Log Pipeline</span><span class="r-project__tag">in progress</span> —
+        centralized log-processing pipeline on Apache Kafka for scalable ingestion, real-time event
+        visibility, and automation of security-event processing.
+      </div>
+    </section>
+
+    <section class="r-section">
+      <h2>Education</h2>
+      <div class="r-entry">
+        <div class="r-entry__top">
+          <span class="r-entry__role">B.Sc. Software Engineering</span>
+          <span class="r-entry__date">09/2022 – 07/2026</span>
+        </div>
+        <p class="r-entry__place">Ostim Technical University · Ankara, Turkey</p>
+        <ul class="r-points">
+          <li>Focused on cybersecurity and security operations.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("printBtn").addEventListener("click", function () {
+      window.print();
+    });
+  </script>
+</body>
+</html>
