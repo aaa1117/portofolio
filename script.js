@@ -49,8 +49,9 @@
     // so only real sections are navigable commands.
     const sections = Array.from(document.querySelectorAll("main section[id]"))
       .map(function (s) { return s.getAttribute("id"); });
-    const builtins = ["help", "ls", "clear", "whoami"];
+    const builtins = ["help", "ls", "clear", "whoami", "cv"];
     const allCommands = sections.concat(builtins);
+    const cvAliases = ["cv", "resume", "download", "download cv", "download resume"];
 
     const history = [];
     let historyIndex = -1; // points one past the newest entry
@@ -80,6 +81,16 @@
       target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
     }
 
+    function downloadCV() {
+      appendLine("↓ downloading resume.pdf …", "ok");
+      const a = document.createElement("a");
+      a.href = "assets/resume.pdf";
+      a.download = "Ayman-Bilal-Resume.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
     function run(raw) {
       const cmd = raw.trim().toLowerCase();
       echoCommand(raw.trim());
@@ -88,9 +99,12 @@
 
       if (sections.indexOf(cmd) !== -1) {
         goToSection(cmd);
+      } else if (cvAliases.indexOf(cmd) !== -1) {
+        downloadCV();
       } else if (cmd === "help") {
         appendLine("available commands:", "");
         appendLine("  " + sections.join("  ") + "   → jump to a section", "");
+        appendLine("  cv | download cv   download my resume (PDF)", "");
         appendLine("  ls       list page sections", "");
         appendLine("  clear    clear the terminal", "");
         appendLine("  whoami   about me", "");
