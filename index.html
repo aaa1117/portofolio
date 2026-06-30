@@ -52,7 +52,7 @@
     <!-- ===== HERO ===== -->
     <section class="hero">
       <div class="container">
-        <div class="terminal" role="img" aria-label="Terminal window introducing Ayman Bilal, Blue Team / Security Engineer based in Abu Dhabi, UAE and Ankara, Turkey.">
+        <div class="terminal" id="terminal" aria-label="Interactive terminal — type a section name to navigate the page">
           <div class="terminal__bar">
             <span class="dot dot--red"></span>
             <span class="dot dot--yellow"></span>
@@ -67,6 +67,15 @@
               <p><span class="key">focus</span>     : SIEM · Threat Detection · Log Pipelines</p>
               <p><span class="key">location</span>  : Abu Dhabi, UAE · Ankara, Turkey</p>
               <p><span class="key">status</span>    : <span class="status-open">open to junior security roles</span></p>
+            </div>
+
+            <div class="terminal__interactive" id="interactive" hidden>
+              <p class="line term-hint">Type a section name to jump there — try <span class="key">help</span> or <span class="key">ls</span>.</p>
+              <div class="terminal__log" id="termLog" aria-live="polite"></div>
+              <p class="line line--input">
+                <span class="prompt">visitor@portfolio</span><span class="sep">:</span><span class="path">~</span><span class="dollar">$</span>
+                <input id="termInput" class="term-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" />
+              </p>
             </div>
           </div>
         </div>

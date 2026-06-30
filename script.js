@@ -12,8 +12,11 @@
   const outputEl = document.getElementById("output");
   const command = "whoami";
 
+  const interactiveEl = document.getElementById("interactive");
+
   function revealOutput() {
     if (outputEl) outputEl.hidden = false;
+    if (interactiveEl) interactiveEl.hidden = false;
   }
 
   if (typedEl && outputEl) {
@@ -34,6 +37,122 @@
       };
       setTimeout(tick, 600);
     }
+  }
+
+  /* ---------- Interactive terminal command line ---------- */
+  const terminalEl = document.getElementById("terminal");
+  const inputEl = document.getElementById("termInput");
+  const logEl = document.getElementById("termLog");
+
+  if (terminalEl && inputEl && logEl) {
+    // Valid keywords are derived from the actual sections on the page,
+    // so only real sections are navigable commands.
+    const sections = Array.from(document.querySelectorAll("main section[id]"))
+      .map(function (s) { return s.getAttribute("id"); });
+    const builtins = ["help", "ls", "clear", "whoami"];
+    const allCommands = sections.concat(builtins);
+
+    const history = [];
+    let historyIndex = -1; // points one past the newest entry
+
+    function appendLine(text, kind) {
+      const p = document.createElement("p");
+      p.className = "line term-resp" + (kind ? " term-resp--" + kind : "");
+      p.textContent = text;
+      logEl.appendChild(p);
+    }
+
+    function echoCommand(raw) {
+      const p = document.createElement("p");
+      p.className = "line term-echo";
+      p.innerHTML =
+        '<span class="prompt">visitor@portfolio</span>' +
+        '<span class="sep">:</span><span class="path">~</span>' +
+        '<span class="dollar">$</span> ';
+      p.appendChild(document.createTextNode(raw));
+      logEl.appendChild(p);
+    }
+
+    function goToSection(id) {
+      const target = document.getElementById(id);
+      if (!target) return;
+      appendLine("→ navigating to " + id, "ok");
+      target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    }
+
+    function run(raw) {
+      const cmd = raw.trim().toLowerCase();
+      echoCommand(raw.trim());
+
+      if (cmd === "") return;
+
+      if (sections.indexOf(cmd) !== -1) {
+        goToSection(cmd);
+      } else if (cmd === "help") {
+        appendLine("available commands:", "");
+        appendLine("  " + sections.join("  ") + "   → jump to a section", "");
+        appendLine("  ls       list page sections", "");
+        appendLine("  clear    clear the terminal", "");
+        appendLine("  whoami   about me", "");
+      } else if (cmd === "ls") {
+        appendLine(sections.join("   "), "");
+      } else if (cmd === "clear") {
+        logEl.innerHTML = "";
+      } else if (cmd === "whoami") {
+        goToSection("about");
+      } else {
+        appendLine("command not found: " + cmd + "  (try 'help')", "err");
+      }
+    }
+
+    function complete() {
+      const value = inputEl.value.trim().toLowerCase();
+      if (!value) return;
+      const matches = allCommands.filter(function (c) { return c.indexOf(value) === 0; });
+      if (matches.length === 1) {
+        inputEl.value = matches[0];
+      } else if (matches.length > 1) {
+        appendLine(matches.join("   "), "");
+      }
+    }
+
+    // Click anywhere in the terminal focuses the prompt (unless selecting text / a link).
+    terminalEl.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") return;
+      if (window.getSelection && String(window.getSelection())) return;
+      inputEl.focus();
+    });
+
+    inputEl.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const raw = inputEl.value;
+        if (raw.trim() !== "") {
+          history.push(raw.trim());
+        }
+        historyIndex = history.length;
+        run(raw);
+        inputEl.value = "";
+        logEl.scrollTop = logEl.scrollHeight;
+      } else if (e.key === "ArrowUp") {
+        if (history.length && historyIndex > 0) {
+          historyIndex--;
+          inputEl.value = history[historyIndex];
+        }
+        e.preventDefault();
+      } else if (e.key === "ArrowDown") {
+        if (historyIndex < history.length - 1) {
+          historyIndex++;
+          inputEl.value = history[historyIndex];
+        } else {
+          historyIndex = history.length;
+          inputEl.value = "";
+        }
+        e.preventDefault();
+      } else if (e.key === "Tab") {
+        complete();
+        e.preventDefault();
+      }
+    });
   }
 
   /* ---------- Mobile nav toggle ---------- */
