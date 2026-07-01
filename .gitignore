@@ -5,3 +5,8 @@ docs/
 # OS / misc
 .DS_Store
 Thumbs.db
+
+# Private job-search materials — never publish
+applications/
+resume-soc-uae.html
+Ayman-Bilal-SOC-Analyst-UAE.pdf

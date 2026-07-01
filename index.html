@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayman Bilal — Blue Team / Security Engineering</title>
-  <meta name="description" content="Ayman Mohamed Zakieldin Bilal — Software Engineering graduate and blue-team security engineer focused on SIEM engineering, threat detection, honeypots, and Linux security automation." />
+  <title>Ayman Bilal — SOC Analyst · Blue Team</title>
+  <meta name="description" content="Ayman Mohamed Zakieldin Bilal — junior SOC analyst / blue-team security engineer. Wazuh SIEM, threat detection, honeypots, Kafka log pipelines, Linux security automation. Arabic &amp; English." />
   <meta name="author" content="Ayman Mohamed Zakieldin Bilal" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Ayman Bilal — Blue Team / Security Engineering" />
-  <meta property="og:description" content="SIEM engineering · threat detection · honeypots · Linux security automation." />
+  <meta property="og:title" content="Ayman Bilal — SOC Analyst · Blue Team" />
+  <meta property="og:description" content="Wazuh SIEM · threat detection · honeypots · log pipelines · Linux security automation." />
   <meta property="og:type" content="website" />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -22,22 +22,35 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Background grid layer -->
+  <!-- Background layers -->
   <div class="bg-grid" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- ===== BOOT SEQUENCE ===== -->
+  <div class="boot" id="boot" hidden aria-hidden="true">
+    <div class="boot__inner">
+      <pre class="boot__log" id="bootLog"></pre>
+      <p class="boot__skip">press any key to skip</p>
+    </div>
+  </div>
 
   <!-- ===== NAV ===== -->
   <header class="nav" id="top">
     <div class="nav__inner">
       <a href="#top" class="brand" aria-label="Home">
-        <span class="brand__mark">AB</span>
-        <span class="brand__dot">_</span>
+        <span class="brand__mark">AYMAN</span><span class="brand__sep">::</span><span class="brand__soc">SOC</span><span class="brand__dot">_</span>
       </a>
 
+      <div class="nav__status" aria-hidden="true">
+        <span class="nav__clock mono" id="navClock">--:--:-- UTC</span>
+        <span class="nav__online mono"><span class="pulse-dot"></span>ONLINE</span>
+      </div>
+
       <nav class="nav__links" aria-label="Primary">
-        <a href="#about">about</a>
-        <a href="#skills">skills</a>
-        <a href="#projects">projects</a>
-        <a href="#experience">experience</a>
+        <a href="#profile">profile</a>
+        <a href="#arsenal">arsenal</a>
+        <a href="#casefiles">case-files</a>
+        <a href="#record">record</a>
         <a href="#contact">contact</a>
         <a href="assets/resume.pdf" class="btn btn--small" download>Download CV</a>
       </nav>
@@ -49,206 +62,257 @@
   </header>
 
   <main>
-    <!-- ===== HERO ===== -->
+    <!-- ===== HERO: SOC CONSOLE ===== -->
     <section class="hero">
       <div class="container">
-        <div class="terminal" id="terminal" aria-label="Interactive terminal — type a section name to navigate the page">
-          <div class="terminal__bar">
-            <span class="dot dot--red"></span>
-            <span class="dot dot--yellow"></span>
-            <span class="dot dot--green"></span>
-            <span class="terminal__title">ayman@bluteam: ~</span>
+        <div class="console">
+          <div class="console__bar mono">
+            <span class="console__title">AYMAN-SOC // ANALYST CONSOLE v2.0</span>
+            <span class="console__meta">
+              <span id="utcClock">--:--:-- UTC</span>
+              <span class="console__sep">·</span>
+              <span class="console__uptime">uptime <span id="uptime">00:00</span></span>
+              <span class="console__sep">·</span>
+              <span class="console__online"><span class="pulse-dot"></span>ONLINE</span>
+            </span>
           </div>
-          <div class="terminal__body">
-            <p class="line"><span class="prompt">visitor@portfolio</span><span class="sep">:</span><span class="path">~</span><span class="dollar">$</span> <span id="typed" class="typed"></span><span class="cursor" id="cursor" aria-hidden="true">█</span></p>
-            <div class="terminal__output" id="output" hidden>
-              <p><span class="key">name</span>      : Ayman Mohamed Zakieldin Bilal</p>
-              <p><span class="key">role</span>      : Blue Team / Security Engineer</p>
-              <p><span class="key">focus</span>     : SIEM · Threat Detection · Log Pipelines</p>
-              <p><span class="key">location</span>  : Abu Dhabi, UAE · Ankara, Turkey</p>
-              <p><span class="key">status</span>    : <span class="status-open">open to junior security roles</span></p>
+
+          <div class="console__grid">
+            <!-- Analyst ID card -->
+            <div class="panel panel--id">
+              <div class="panel__head mono">
+                <span>[ ANALYST ID ]</span>
+                <span class="panel__lights" aria-hidden="true"><i></i><i></i><i></i></span>
+              </div>
+              <div class="panel__body">
+                <h1 class="id__name">Ayman Bilal</h1>
+                <p class="id__role mono">SOC Analyst · Blue Team</p>
+                <dl class="id__rows mono">
+                  <div class="id__row"><dt>focus</dt><dd>SIEM · detection · log pipelines</dd></div>
+                  <div class="id__row"><dt>siem</dt><dd>Wazuh (hands-on)</dd></div>
+                  <div class="id__row"><dt>langs</dt><dd>Arabic (native) · English</dd></div>
+                  <div class="id__row"><dt>base</dt><dd>Ankara, TR · open to UAE / Gulf</dd></div>
+                  <div class="id__row"><dt>status</dt><dd><span class="status-open"><span class="pulse-dot pulse-dot--green"></span>open to junior SOC roles</span></dd></div>
+                </dl>
+                <div class="id__cta">
+                  <a href="#casefiles" class="btn">View case files</a>
+                  <a href="assets/resume.pdf" class="btn btn--ghost" download>Download CV</a>
+                  <a href="https://github.com/aaa1117" class="icon-link" target="_blank" rel="noopener" aria-label="GitHub profile">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+                  </a>
+                </div>
+              </div>
             </div>
 
-            <div class="terminal__interactive" id="interactive" hidden>
-              <p class="line term-hint">Type a section (<span class="key">skills</span>, <span class="key">projects</span>, <span class="key">experience</span>) and hit Enter, or <span class="key">cv</span> to download my résumé — try <span class="key">help</span>.</p>
-              <div class="terminal__log" id="termLog" aria-live="polite"></div>
-              <p class="line line--input">
-                <span class="prompt">visitor@portfolio</span><span class="sep">:</span><span class="path">~</span><span class="dollar">$</span>
-                <input id="termInput" class="term-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" />
-              </p>
+            <!-- Telemetry -->
+            <div class="panel panel--telemetry">
+              <div class="panel__head mono">
+                <span>[ LAB TELEMETRY ]</span>
+                <span class="badge badge--sim">simulated</span>
+              </div>
+              <div class="panel__body mono">
+                <div class="gauge">
+                  <span class="gauge__label">threat level</span>
+                  <span class="gauge__segments" aria-hidden="true">
+                    <i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+                  </span>
+                  <span class="gauge__value">GUARDED</span>
+                </div>
+                <div class="meters" aria-hidden="true">
+                  <div class="meter"><span class="meter__label">log ingest</span><span class="meter__track"><span class="meter__fill meter__fill--a"></span></span></div>
+                  <div class="meter"><span class="meter__label">detections</span><span class="meter__track"><span class="meter__fill meter__fill--b"></span></span></div>
+                  <div class="meter"><span class="meter__label">honeypot</span><span class="meter__track"><span class="meter__fill meter__fill--c"></span></span></div>
+                </div>
+                <ul class="telemetry__rows">
+                  <li><span class="key">wazuh-manager</span> <span class="ok">● running</span></li>
+                  <li><span class="key">kafka-pipeline</span> <span class="warn">● building</span></li>
+                  <li><span class="key">coffee-supply</span> <span class="ok">● stable</span></li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Live log feed -->
+            <div class="panel panel--feed">
+              <div class="panel__head mono">
+                <span>[ LIVE LOG FEED ]</span>
+                <span class="badge badge--sim">simulated</span>
+              </div>
+              <div class="panel__body">
+                <div class="feed mono" id="feed" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <!-- Interactive terminal -->
+            <div class="panel panel--term" id="terminal">
+              <div class="panel__head mono">
+                <span>[ TERMINAL ]</span>
+                <span class="panel__hint">visitor@ayman-soc</span>
+              </div>
+              <div class="panel__body terminal__body">
+                <p class="line term-hint">Type a section (<span class="key">profile</span>, <span class="key">arsenal</span>, <span class="key">casefiles</span>) — or <span class="key">cv</span> to grab my résumé. Try <span class="key">help</span>.</p>
+                <div class="terminal__log" id="termLog" aria-live="polite"></div>
+                <p class="line line--input mono">
+                  <span class="prompt">visitor@ayman-soc</span><span class="sep">:</span><span class="path">~</span><span class="dollar">$</span>
+                  <input id="termInput" class="term-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" aria-label="Terminal command input" />
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="hero__cta">
-          <a href="#projects" class="btn">View Projects</a>
-          <a href="assets/resume.pdf" class="btn btn--ghost" download>Download CV</a>
-          <a href="https://github.com/aaa1117" class="icon-link" target="_blank" rel="noopener" aria-label="GitHub profile">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-          </a>
         </div>
       </div>
     </section>
 
-    <!-- ===== ABOUT ===== -->
-    <section id="about" class="section reveal">
+    <!-- ===== 01 ANALYST PROFILE ===== -->
+    <section id="profile" class="section reveal">
       <div class="container">
-        <h2 class="section__title"><span class="section__num">01.</span> about</h2>
+        <h2 class="section__title mono"><span class="section__num">[01]</span> ANALYST PROFILE</h2>
         <div class="about">
           <p>
-            I'm a Software Engineering graduate building a career in
-            <strong>blue-team security engineering</strong>. My work centers on
-            turning raw, noisy logs into clear signal — designing SIEM pipelines,
-            tuning detections, and standing up the infrastructure that keeps a
-            network observable and defensible.
+            I'm a Software Engineering graduate (2026) building a career on the
+            <strong>blue team</strong>. I like the unglamorous core of security
+            operations: getting logs from everywhere into one place, and making
+            detections fire when they should — and stay quiet when they
+            shouldn't.
           </p>
           <p>
-            I like working close to the metal: Linux administration, log
-            collection pipelines, authentication and access control, and
-            automating the repetitive parts of security operations with Python
-            and Bash. Right now I'm deepening my work on scalable log ingestion
-            with Apache Kafka and hands-on threat detection.
+            Hands-on so far: deploying and tuning a <strong>Wazuh SIEM</strong>,
+            running a <strong>honeypot</strong> to capture real intrusion
+            attempts, and building a <strong>Kafka</strong> pipeline for
+            scalable log ingestion. Under it all: Linux administration,
+            identity and access management with Keycloak, and automating the
+            repetitive parts with Python and Bash. Native Arabic, professional
+            English.
           </p>
           <ul class="stats">
             <li><span class="stats__num">B.Sc.</span><span class="stats__label">Software Engineering · 2026</span></li>
-            <li><span class="stats__num">3</span><span class="stats__label">security projects shipped</span></li>
-            <li><span class="stats__num">SIEM</span><span class="stats__label">log analysis &amp; detection</span></li>
+            <li><span class="stats__num">3</span><span class="stats__label">case files below</span></li>
+            <li><span class="stats__num">AR/EN</span><span class="stats__label">bilingual analyst</span></li>
+            <li><span class="stats__num">24/7</span><span class="stats__label">shift-ready, curious always</span></li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ===== SKILLS ===== -->
-    <section id="skills" class="section reveal">
+    <!-- ===== 02 ARSENAL ===== -->
+    <section id="arsenal" class="section reveal">
       <div class="container">
-        <h2 class="section__title"><span class="section__num">02.</span> skills</h2>
+        <h2 class="section__title mono"><span class="section__num">[02]</span> ARSENAL</h2>
         <div class="skills">
           <div class="skill-group">
-            <h3 class="skill-group__title">// security</h3>
+            <h3 class="skill-group__title mono">// siem &amp; detection</h3>
             <ul class="tags">
-              <li>SIEM Architecture</li>
+              <li class="tag--core">Wazuh SIEM</li>
               <li>Log Analysis</li>
+              <li>Event Correlation</li>
+              <li>Detection Tuning</li>
               <li>Threat Detection</li>
-              <li>Honeypot Development</li>
-              <li>Authentication &amp; Access Control</li>
               <li>Security Monitoring</li>
             </ul>
           </div>
           <div class="skill-group">
-            <h3 class="skill-group__title">// tools &amp; platforms</h3>
+            <h3 class="skill-group__title mono">// deception &amp; network</h3>
             <ul class="tags">
-              <li>Kali Linux</li>
-              <li>Parrot OS</li>
-              <li>Manjaro</li>
-              <li>Apache Kafka</li>
-              <li>Keycloak</li>
-              <li>Odoo</li>
-              <li>Server Setup</li>
+              <li class="tag--core">Honeypot Deployment</li>
+              <li>Intrusion Detection</li>
+              <li>Network Security</li>
+              <li>TCP/IP</li>
+              <li>SSH</li>
             </ul>
           </div>
           <div class="skill-group">
-            <h3 class="skill-group__title">// programming</h3>
+            <h3 class="skill-group__title mono">// systems &amp; identity</h3>
             <ul class="tags">
-              <li>Python</li>
+              <li class="tag--core">Linux Administration</li>
+              <li>Kali · Parrot · Manjaro</li>
+              <li>Server Setup</li>
+              <li>Keycloak (IAM)</li>
+              <li>Authentication &amp; Access Control</li>
+              <li>Odoo</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3 class="skill-group__title mono">// automation &amp; data</h3>
+            <ul class="tags">
+              <li class="tag--core">Python</li>
               <li>Bash Scripting</li>
+              <li>Apache Kafka</li>
+              <li>Log Collection Pipelines</li>
               <li>Regular Expressions</li>
               <li>API Integration</li>
             </ul>
           </div>
-          <div class="skill-group">
-            <h3 class="skill-group__title">// networking &amp; systems</h3>
-            <ul class="tags">
-              <li>Linux Administration</li>
-              <li>SSH</li>
-              <li>TCP/IP</li>
-              <li>Log Collection Pipelines</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section id="projects" class="section reveal">
+    <!-- ===== 03 CASE FILES ===== -->
+    <section id="casefiles" class="section reveal">
       <div class="container">
-        <h2 class="section__title"><span class="section__num">03.</span> projects</h2>
-        <div class="projects">
+        <h2 class="section__title mono"><span class="section__num">[03]</span> CASE FILES</h2>
+        <div class="cases">
 
-          <article class="card">
-            <div class="card__head">
-              <svg class="card__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 13h4l2 5 4-14 2 9h6"/></svg>
-              <a href="https://github.com/aaa1117" class="card__link" target="_blank" rel="noopener" aria-label="View SIEM System on GitHub">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-              </a>
-            </div>
-            <h3 class="card__title">SIEM System</h3>
-            <p class="card__desc">
-              An open-source SIEM for centralized log monitoring and security
-              event analysis. Built the log collection layer, worked through
-              event correlation, and focused the design on improving visibility
-              and threat detection across network infrastructure.
-            </p>
-            <ul class="card__tags">
-              <li>Log Collection</li>
-              <li>Event Correlation</li>
-              <li>Threat Detection</li>
+          <article class="case">
+            <header class="case__head mono">
+              <span class="case__id">CASE-001</span>
+              <span class="case__status case__status--ok"><span class="pulse-dot pulse-dot--green"></span>OPERATIONAL</span>
+            </header>
+            <h3 class="case__title">Wazuh SIEM Deployment</h3>
+            <dl class="case__meta">
+              <div class="case__row"><dt class="mono">class</dt><dd>Detection engineering</dd></div>
+              <div class="case__row"><dt class="mono">objective</dt><dd>Centralized visibility over hosts and network events — one place where security signal actually lands.</dd></div>
+              <div class="case__row"><dt class="mono">approach</dt><dd>Deployed the open-source Wazuh SIEM, built the log-collection layer, and worked through event correlation and detection rules to turn raw noise into alerts worth reading.</dd></div>
+            </dl>
+            <ul class="case__tags mono">
+              <li>Wazuh</li><li>Log Collection</li><li>Event Correlation</li><li>Linux</li>
             </ul>
+            <a href="https://github.com/aaa1117" class="case__link mono" target="_blank" rel="noopener">open on github ↗</a>
           </article>
 
-          <article class="card">
-            <div class="card__head">
-              <svg class="card__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.4 8.5 8 11 4.6-2.5 8-6 8-11V5l-8-3Z"/></svg>
-              <a href="https://github.com/aaa1117" class="card__link" target="_blank" rel="noopener" aria-label="View Honeypot on GitHub">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-              </a>
-            </div>
-            <h3 class="card__title">Network Honeypot</h3>
-            <p class="card__desc">
-              A honeypot deployed inside the network to lure and observe
-              attackers — capturing intrusion attempts and turning them into
-              early-warning signal for defenders, and a safe lab for studying
-              real adversary behavior.
-            </p>
-            <ul class="card__tags">
-              <li>Deception</li>
-              <li>Intrusion Detection</li>
-              <li>Network Security</li>
+          <article class="case">
+            <header class="case__head mono">
+              <span class="case__id">CASE-002</span>
+              <span class="case__status case__status--closed">■ CLOSED — FINDINGS LOGGED</span>
+            </header>
+            <h3 class="case__title">Network Honeypot</h3>
+            <dl class="case__meta">
+              <div class="case__row"><dt class="mono">class</dt><dd>Deception operations</dd></div>
+              <div class="case__row"><dt class="mono">objective</dt><dd>Lure attackers into a controlled decoy and turn their moves into early-warning signal for defenders.</dd></div>
+              <div class="case__row"><dt class="mono">approach</dt><dd>Deployed a honeypot inside the network, captured intrusion attempts, and used it as a safe lab for studying real adversary behavior.</dd></div>
+            </dl>
+            <ul class="case__tags mono">
+              <li>Deception</li><li>Intrusion Detection</li><li>Network Security</li>
             </ul>
+            <a href="https://github.com/aaa1117" class="case__link mono" target="_blank" rel="noopener">open on github ↗</a>
           </article>
 
-          <article class="card">
-            <div class="card__head">
-              <svg class="card__icon" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="7" cy="7" r="1.4" fill="currentColor" stroke="none"/><circle cx="11" cy="12" r="1.4" fill="currentColor" stroke="none"/><circle cx="9" cy="17" r="1.4" fill="currentColor" stroke="none"/></svg>
-              <a href="https://github.com/aaa1117" class="card__link" target="_blank" rel="noopener" aria-label="View Kafka log pipeline on GitHub">
-                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-              </a>
-            </div>
-            <h3 class="card__title">Kafka Log Pipeline</h3>
-            <p class="card__desc">
-              A centralized log-processing pipeline built on Apache Kafka for
-              scalable ingestion and analysis. Focused on log organization,
-              real-time event visibility, and automation models for efficient
-              security event processing.
-            </p>
-            <ul class="card__tags">
-              <li>Apache Kafka</li>
-              <li>Log Ingestion</li>
-              <li>Real-time Monitoring</li>
+          <article class="case">
+            <header class="case__head mono">
+              <span class="case__id">CASE-003</span>
+              <span class="case__status case__status--active"><span class="pulse-dot pulse-dot--amber"></span>ACTIVE</span>
+            </header>
+            <h3 class="case__title">Kafka Log Pipeline</h3>
+            <dl class="case__meta">
+              <div class="case__row"><dt class="mono">class</dt><dd>Detection data engineering</dd></div>
+              <div class="case__row"><dt class="mono">objective</dt><dd>Scalable, real-time ingestion so security events arrive fast and organized — ready for analysis.</dd></div>
+              <div class="case__row"><dt class="mono">approach</dt><dd>Building a centralized log-processing pipeline on Apache Kafka: topic design for log organization, real-time event visibility, and automation for efficient processing.</dd></div>
+            </dl>
+            <ul class="case__tags mono">
+              <li>Apache Kafka</li><li>Log Ingestion</li><li>Real-time</li>
             </ul>
-            <span class="card__badge">in progress</span>
+            <a href="https://github.com/aaa1117" class="case__link mono" target="_blank" rel="noopener">open on github ↗</a>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- ===== EXPERIENCE ===== -->
-    <section id="experience" class="section reveal">
+    <!-- ===== 04 SERVICE RECORD ===== -->
+    <section id="record" class="section reveal">
       <div class="container">
-        <h2 class="section__title"><span class="section__num">04.</span> experience</h2>
+        <h2 class="section__title mono"><span class="section__num">[04]</span> SERVICE RECORD</h2>
         <div class="timeline">
           <div class="timeline__item">
-            <div class="timeline__meta">
+            <div class="timeline__meta mono">
               <span class="timeline__date">09/2025 – 07/2026</span>
               <span class="timeline__place">Ankara, Turkey</span>
             </div>
@@ -259,57 +323,57 @@
               <li>Supported authentication and access management workflows.</li>
               <li>Participated in technical problem-solving and deployment tasks.</li>
               <li>Collaborated with development teams to improve system functionality and operational workflows.</li>
-              <li>Gained hands-on experience with infrastructure management, networking, and system support.</li>
             </ul>
           </div>
         </div>
 
-        <h2 class="section__title section__title--sub"><span class="section__num">05.</span> education</h2>
+        <h2 class="section__title section__title--sub mono"><span class="section__num">[04b]</span> TRAINING</h2>
         <div class="timeline">
           <div class="timeline__item">
-            <div class="timeline__meta">
+            <div class="timeline__meta mono">
               <span class="timeline__date">09/2022 – 07/2026</span>
               <span class="timeline__place">Ankara, Turkey</span>
             </div>
             <h3 class="timeline__role">B.Sc. Software Engineering</h3>
-            <p class="timeline__place-name">Ostim Technical University</p>
-            <p class="timeline__points">B.Sc. in Software Engineering, graduated 2026. Focused on cybersecurity and security operations.</p>
+            <p class="timeline__place-name mono">Ostim Technical University</p>
+            <p class="timeline__points">Graduated 2026. Focused on cybersecurity and security operations.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
+    <!-- ===== 05 OPEN CHANNEL ===== -->
     <section id="contact" class="section section--contact reveal">
       <div class="container">
-        <h2 class="section__title"><span class="section__num">06.</span> contact</h2>
+        <h2 class="section__title mono"><span class="section__num">[05]</span> OPEN CHANNEL</h2>
         <p class="contact__lead">
-          Open to junior <strong>blue-team / security engineering</strong> roles
-          and internships. If you're building a security team, let's talk.
+          Open to junior <strong>SOC analyst / blue-team</strong> roles and
+          internships — Turkey, UAE &amp; Gulf, or remote. If you're building a
+          security team, transmission is welcome.
         </p>
         <div class="contact__links">
-          <a href="mailto:aymanmomdd@gmail.com" class="contact__item">
+          <a href="mailto:aymanmomdd@gmail.com" class="contact__item mono">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
             aymanmomdd@gmail.com
           </a>
-          <a href="tel:+905057737807" class="contact__item">
+          <a href="tel:+905057737807" class="contact__item mono">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
             +90 505 773 7807
           </a>
-          <a href="https://github.com/aaa1117" class="contact__item" target="_blank" rel="noopener">
+          <a href="https://github.com/aaa1117" class="contact__item mono" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
             github.com/aaa1117
           </a>
         </div>
-        <a href="mailto:aymanmomdd@gmail.com" class="btn btn--large">Get in touch</a>
+        <a href="mailto:aymanmomdd@gmail.com" class="btn btn--large">Open channel</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="container footer__inner">
+    <div class="container footer__inner mono">
       <p>© <span id="year"></span> Ayman Mohamed Zakieldin Bilal</p>
-      <p class="footer__built">built with plain HTML, CSS &amp; JS · defended with coffee</p>
+      <p class="footer__built">static HTML/CSS/JS · no trackers · defended with coffee</p>
       <a href="#top" class="footer__top" aria-label="Back to top">↑ top</a>
     </div>
   </footer>

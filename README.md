@@ -1,13 +1,13 @@
 # Ayman Bilal — Portfolio
 
-A single-page, dark "security-ops" themed portfolio for a blue-team / security
-engineering student. Plain HTML, CSS, and JavaScript — no build step, no
-dependencies.
+A single-page "SOC analyst console" portfolio: boot sequence, live (simulated)
+log feed, interactive terminal, and projects presented as case files. Plain
+HTML, CSS, and JavaScript — no build step, no dependencies, no trackers.
 
 ```
 index.html      → markup & content
-styles.css      → security-ops theme
-script.js       → typing animation, scroll reveals, nav
+styles.css      → SOC console theme
+script.js       → boot sequence, clocks, log feed, terminal, scroll reveals
 assets/
   resume.pdf    → downloadable CV
   favicon.svg   → site icon
