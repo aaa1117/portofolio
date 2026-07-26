@@ -3,194 +3,167 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayman Bilal — Résumé</title>
-  <meta name="description" content="Résumé of Ayman Mohamed Zakieldin Bilal — Software Engineering graduate and blue-team security engineer (SIEM, threat detection, honeypots, Linux security automation)." />
+  <title>Ayman Mohamed Zakieldin Bilal — SOC Analyst (Tier 1) Résumé</title>
+  <meta name="description" content="Résumé of Ayman Mohamed Zakieldin Bilal — SOC Analyst (Tier 1) / blue team: Wazuh SIEM, log analysis, alert triage, threat detection, honeypots, Linux security automation." />
   <meta name="author" content="Ayman Mohamed Zakieldin Bilal" />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <!--
+    ============================================================
+    ATS NOTES — read before editing
+    ============================================================
+    This document is deliberately built for machine parsing:
+      * Single-column linear flow. No tables, no CSS columns,
+        no floats, no text boxes, no images/icons in content.
+      * Standard section headings (PROFESSIONAL SUMMARY,
+        TECHNICAL SKILLS, PROFESSIONAL EXPERIENCE, PROJECTS,
+        EDUCATION, CERTIFICATIONS, LANGUAGES) — these are the
+        literal strings most ATS parsers look for.
+      * Skills are comma-separated running text, NOT chips/pills.
+        Chip layouts extract as "PythonBash ScriptingRegex".
+      * No CSS ::before content (no "//", no "▹"). Pseudo-element
+        text leaks into PDF text extraction and pollutes keywords.
+      * System fonts only, no webfont fetch — standard glyph
+        encoding survives PDF text extraction cleanly.
+      * Contact details live in normal body flow, never in a
+        page header/footer (ATS discards those).
+      * Dates use "Mon YYYY – Mon YYYY", the most widely parsed form.
+
+    >>> BEFORE SENDING: fill in every [BRACKETED] placeholder. <<<
+  -->
 
   <style>
     :root {
-      --paper:   #ffffff;
-      --ink:     #1f2937;
-      --muted:   #64748b;
-      --heading: #0f172a;
-      --accent:  #0e7490;  /* cyan-700 — on-brand, prints cleanly */
-      --accent-2:#047857;  /* green-700 */
-      --border:  #e2e8f0;
-      --chip:    #f1f5f9;
-      --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-      --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --ink:     #1a1a1a;
+      --muted:   #444444;
+      --heading: #000000;
+      --rule:    #999999;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: var(--sans);
+      /* Standard, universally available fonts. No webfonts:
+         exotic font subsetting is a common cause of garbled
+         PDF text extraction. */
+      font-family: "Calibri", "Carlito", Arial, Helvetica, sans-serif;
       color: var(--ink);
       background: #eef2f7;
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+      line-height: 1.38;
       padding: 32px 16px 64px;
     }
 
-    /* Floating "Save as PDF" control (screen only) */
+    /* CRITICAL FOR ATS: disable typographic ligatures.
+       Without this, "firewall" is rendered with an fi-ligature glyph and
+       extracts from the PDF as "ﬁrewall" (U+FB01) — a keyword search for
+       "firewall", "traffic", "identification" or "workflow" then MISSES.
+       This one line is the difference between matching and not matching. */
+    * {
+      font-variant-ligatures: none;
+      -webkit-font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "hlig" 0;
+    }
+
+    /* Floating "Save as PDF" control — screen only, never printed */
     .print-btn {
       position: fixed;
       top: 20px;
       right: 20px;
       z-index: 10;
-      font-family: var(--mono);
-      font-size: 0.82rem;
+      font-size: 0.85rem;
       color: #fff;
-      background: var(--accent);
+      background: #0e7490;
       border: none;
       border-radius: 8px;
       padding: 10px 16px;
       cursor: pointer;
       box-shadow: 0 8px 22px -10px rgba(14, 116, 144, 0.8);
-      transition: transform .15s ease, background .15s ease;
     }
-    .print-btn:hover { transform: translateY(-1px); background: #0b5e74; }
+    .print-btn:hover { background: #0b5e74; }
 
-    /* The A4 "paper" */
     .resume {
       max-width: 820px;
       margin: 0 auto;
-      background: var(--paper);
-      border: 1px solid var(--border);
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
       border-radius: 12px;
       box-shadow: 0 24px 60px -28px rgba(15, 23, 42, 0.35);
-      padding: 44px 48px 48px;
+      padding: 40px 44px 44px;
     }
 
-    /* Header */
-    .r-head { border-bottom: 2px solid var(--border); padding-bottom: 18px; margin-bottom: 22px; }
-    .r-head h1 {
-      font-size: 1.95rem;
-      letter-spacing: -0.4px;
+    /* ---------- Header ---------- */
+    .r-name {
+      font-size: 1.7rem;
+      font-weight: 700;
       color: var(--heading);
-      line-height: 1.15;
+      letter-spacing: -0.2px;
     }
-    .r-role {
-      font-family: var(--mono);
-      font-size: 0.95rem;
-      color: var(--accent);
-      margin-top: 4px;
-    }
-    .r-contact {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px 18px;
-      margin-top: 14px;
-      font-family: var(--mono);
-      font-size: 0.8rem;
+    .r-title {
+      font-size: 1rem;
+      font-weight: 600;
       color: var(--muted);
+      margin-top: 2px;
+    }
+    /* Contact lines: plain text, pipe-separated, wraps predictably. */
+    .r-contact {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-top: 8px;
     }
     .r-contact a { color: var(--muted); text-decoration: none; }
-    .r-contact a:hover { color: var(--accent); }
-    .r-contact li { display: flex; align-items: center; gap: 6px; }
-    .r-contact svg { color: var(--accent); flex-shrink: 0; }
+    .r-contact a:hover { text-decoration: underline; }
 
-    /* Sections */
-    .r-section { margin-top: 24px; }
+    /* ---------- Sections ---------- */
+    .r-section { margin-top: 14px; }
     .r-section > h2 {
-      font-family: var(--mono);
-      font-size: 0.8rem;
+      font-size: 0.92rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--accent-2);
-      margin-bottom: 14px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid var(--border);
-    }
-    .r-summary { font-size: 0.94rem; color: var(--ink); }
-
-    /* Skills — two columns */
-    .r-skills {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px 28px;
-    }
-    .r-skillgroup h3 {
-      font-family: var(--mono);
-      font-size: 0.82rem;
+      letter-spacing: 0.6px;
       color: var(--heading);
-      margin-bottom: 8px;
-    }
-    .r-skillgroup h3::before { content: "// "; color: var(--accent); }
-    .r-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
-    .r-chips li {
-      font-family: var(--mono);
-      font-size: 0.74rem;
-      color: var(--ink);
-      background: var(--chip);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      padding: 3px 9px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 3px;
+      margin-bottom: 9px;
     }
 
-    /* Experience / Education entries */
-    .r-entry { margin-bottom: 18px; }
+    p, li { font-size: 0.92rem; }
+
+    /* Skills: "Label: a, b, c" running text — parses as one string. */
+    .r-skillline { margin-bottom: 4px; }
+    .r-skillline:last-child { margin-bottom: 0; }
+    .r-skilllabel { font-weight: 700; color: var(--heading); }
+
+    /* ---------- Entries ---------- */
+    .r-entry { margin-bottom: 14px; }
     .r-entry:last-child { margin-bottom: 0; }
-    .r-entry__top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 14px;
-      flex-wrap: wrap;
+    .r-entry__role {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--heading);
     }
-    .r-entry__role { font-size: 1rem; font-weight: 600; color: var(--heading); }
-    .r-entry__date {
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-    .r-entry__place {
-      font-family: var(--mono);
-      font-size: 0.8rem;
-      color: var(--accent);
-      margin-top: 2px;
-      margin-bottom: 8px;
-    }
-    .r-points { list-style: none; }
-    .r-points li {
-      position: relative;
-      padding-left: 16px;
+    .r-entry__meta {
       font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-    .r-points li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
+      color: var(--muted);
+      margin-bottom: 5px;
     }
 
-    /* Projects */
-    .r-project { margin-bottom: 10px; font-size: 0.9rem; }
+    /* Real <ul> bullets, no pseudo-element glyphs. */
+    ul.r-points {
+      list-style: disc outside;
+      margin: 0 0 0 18px;
+    }
+    ul.r-points li { margin-bottom: 3px; }
+
+    .r-project { margin-bottom: 10px; }
     .r-project:last-child { margin-bottom: 0; }
-    .r-project__name { font-weight: 600; color: var(--heading); }
-    .r-project__tag {
-      font-family: var(--mono);
-      font-size: 0.68rem;
-      color: var(--accent-2);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 1px 6px;
-      margin-left: 6px;
-      vertical-align: middle;
-    }
+    .r-project__name { font-weight: 700; color: var(--heading); }
+    .r-project__stack { font-size: 0.86rem; color: var(--muted); }
 
-    /* ---- Print ---- */
-    @page { size: A4; margin: 14mm; }
+    /* ---------- Print / PDF ---------- */
+    @page { size: A4; margin: 13mm; }
     @media print {
-      body { background: #fff; padding: 0; }
+      body { background: #fff; padding: 0; font-size: 9.7pt; line-height: 1.32; }
       .no-print { display: none !important; }
       .resume {
         max-width: none;
@@ -200,151 +173,208 @@
         box-shadow: none;
         padding: 0;
       }
-      .r-section { break-inside: avoid; }
-      .r-entry, .r-project, .r-skillgroup { break-inside: avoid; }
-      a { color: inherit; }
-      :root { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .r-section, .r-entry, .r-project { break-inside: avoid; }
+      a { color: inherit; text-decoration: none; }
     }
   </style>
 </head>
 <body>
-  <button class="print-btn no-print" id="printBtn" type="button">⤓ Save as PDF</button>
+  <button class="print-btn no-print" id="printBtn" type="button">Save as PDF</button>
 
   <main class="resume">
-    <header class="r-head">
-      <h1>Ayman Mohamed Zakieldin Bilal</h1>
-      <p class="r-role">Blue Team / Security Engineer · Software Engineering Graduate</p>
-      <ul class="r-contact">
-        <li>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-          <a href="mailto:aymanmomdd@gmail.com">aymanmomdd@gmail.com</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 4h4l2 5-3 2a14 14 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2A17 17 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg>
-          <a href="tel:+905057737807">+90 505 773 7807</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C18 4.6 19 4.9 19 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-          <a href="https://github.com/aaa1117" target="_blank" rel="noopener">github.com/aaa1117</a>
-        </li>
-        <li>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          Abu Dhabi, UAE · Ankara, Turkey
-        </li>
-      </ul>
+
+    <!-- ============ HEADER ============ -->
+    <header>
+      <h1 class="r-name">Ayman Mohamed Zakieldin Bilal</h1>
+      <p class="r-title">SOC Analyst (Tier 1) | Security Operations &amp; Threat Detection</p>
+      <p class="r-contact">
+        Abu Dhabi, UAE (open to relocation) | Ankara, Turkey<br />
+        Phone: +90 505 773 7807 | Email: <a href="mailto:aymanmomdd@gmail.com">aymanmomdd@gmail.com</a><br />
+        LinkedIn: linkedin.com/in/[YOUR-LINKEDIN-SLUG] |
+        GitHub: <a href="https://github.com/aaa1117">github.com/aaa1117</a> |
+        Portfolio: <a href="https://aaa1117.github.io/portofolio/">aaa1117.github.io/portofolio</a>
+      </p>
     </header>
 
+    <!-- ============ SUMMARY ============ -->
     <section class="r-section">
-      <h2>Summary</h2>
-      <p class="r-summary">
-        Software Engineering graduate building a career in blue-team security engineering. I turn
-        noisy, raw logs into clear signal — designing SIEM pipelines, tuning detections, and standing
-        up the infrastructure that keeps a network observable and defensible. Comfortable working close
-        to the metal: Linux administration, log-collection pipelines, authentication and access control,
-        and automating the repetitive parts of security operations with Python and Bash. Currently
-        deepening work on scalable log ingestion with Apache Kafka and hands-on threat detection.
+      <h2>Professional Summary</h2>
+      <p>
+        Software Engineering graduate (B.Sc., 2026) seeking a Tier 1 SOC Analyst role in security
+        operations and threat detection. Hands-on experience deploying and tuning a Wazuh SIEM,
+        building centralized log-collection pipelines, and operating a network honeypot to capture and
+        analyze real intrusion attempts. Practiced in security event monitoring, log analysis, event
+        correlation, alert triage, and detection rule tuning across Linux servers and network
+        infrastructure, with Python and Bash automation for repetitive security operations tasks.
+        Bilingual (Arabic native, English professional) and available for 24/7 rotating shift coverage.
       </p>
     </section>
 
+    <!-- ============ SKILLS ============
+         Comma-separated running text so keyword extraction is exact.
+         Category labels match the vocabulary used in SOC job postings. -->
     <section class="r-section">
-      <h2>Skills</h2>
-      <div class="r-skills">
-        <div class="r-skillgroup">
-          <h3>security</h3>
-          <ul class="r-chips">
-            <li>SIEM Architecture</li>
-            <li>Log Analysis</li>
-            <li>Threat Detection</li>
-            <li>Honeypot Development</li>
-            <li>Authentication &amp; Access Control</li>
-            <li>Security Monitoring</li>
-          </ul>
-        </div>
-        <div class="r-skillgroup">
-          <h3>tools &amp; platforms</h3>
-          <ul class="r-chips">
-            <li>Kali Linux</li>
-            <li>Parrot OS</li>
-            <li>Manjaro</li>
-            <li>Apache Kafka</li>
-            <li>Keycloak</li>
-            <li>Odoo</li>
-            <li>Server Setup</li>
-          </ul>
-        </div>
-        <div class="r-skillgroup">
-          <h3>programming</h3>
-          <ul class="r-chips">
-            <li>Python</li>
-            <li>Bash Scripting</li>
-            <li>Regular Expressions</li>
-            <li>API Integration</li>
-          </ul>
-        </div>
-        <div class="r-skillgroup">
-          <h3>networking &amp; systems</h3>
-          <ul class="r-chips">
-            <li>Linux Administration</li>
-            <li>SSH</li>
-            <li>TCP/IP</li>
-            <li>Log Collection Pipelines</li>
-          </ul>
-        </div>
-      </div>
+      <h2>Technical Skills</h2>
+
+      <p class="r-skillline">
+        <span class="r-skilllabel">SIEM &amp; Security Monitoring:</span>
+        Wazuh SIEM, security event monitoring, log analysis, log collection pipelines,
+        event correlation, detection rule tuning, false positive reduction, alert triage,
+        dashboards and reporting
+      </p>
+      <p class="r-skillline">
+        <span class="r-skilllabel">Incident Detection &amp; Response:</span>
+        Security alert triage and escalation, incident documentation, indicators of compromise (IOC)
+        identification, MITRE ATT&amp;CK framework, Cyber Kill Chain, intrusion detection,
+        honeypot analysis, threat hunting fundamentals
+      </p>
+      <p class="r-skillline">
+        <span class="r-skilllabel">Networking:</span>
+        TCP/IP, DNS, HTTP/HTTPS, SSH, network traffic analysis, packet capture, network security,
+        firewall and IDS/IPS concepts, port scanning and enumeration
+      </p>
+      <p class="r-skillline">
+        <span class="r-skilllabel">Operating Systems:</span>
+        Linux administration and hardening (Ubuntu, Debian, Kali Linux, Parrot OS, Manjaro),
+        syslog, systemd, Linux server setup and troubleshooting
+      </p>
+      <p class="r-skillline">
+        <span class="r-skilllabel">Identity &amp; Access Management:</span>
+        Keycloak, authentication and authorization workflows, access control, user provisioning,
+        privilege review
+      </p>
+      <p class="r-skillline">
+        <span class="r-skilllabel">Scripting &amp; Automation:</span>
+        Python, Bash shell scripting, regular expressions (regex), log parsing, REST API integration,
+        security task automation
+      </p>
+      <p class="r-skillline">
+        <span class="r-skilllabel">Platforms &amp; Tools:</span>
+        Apache Kafka, Git and GitHub, Odoo ERP, virtualization and lab environments,
+        Linux command line
+      </p>
+      <p class="r-skillline">
+        <span class="r-skilllabel">Soft Skills:</span>
+        Incident escalation and handover, technical documentation, cross-team collaboration,
+        analytical problem solving, shift-based work, English and Arabic communication
+      </p>
     </section>
 
+    <!-- ============ EXPERIENCE ============
+         ATS parsers key on EMPLOYER NAME. The bracket below is the single
+         most important thing to fill in before you send this out. -->
     <section class="r-section">
-      <h2>Experience</h2>
+      <h2>Professional Experience</h2>
+
       <div class="r-entry">
-        <div class="r-entry__top">
-          <span class="r-entry__role">Junior Software Developer Intern</span>
-          <span class="r-entry__date">09/2025 – 07/2026</span>
-        </div>
-        <p class="r-entry__place">Ankara, Turkey</p>
+        <p class="r-entry__role">Junior Software Developer Intern</p>
+        <p class="r-entry__meta">[COMPANY NAME] &mdash; Ankara, Turkey &mdash; Sep 2025 &ndash; Jul 2026</p>
         <ul class="r-points">
-          <li>Assisted in Linux server administration and infrastructure troubleshooting.</li>
-          <li>Worked with Odoo-based systems and backend integrations.</li>
-          <li>Supported authentication and access-management workflows.</li>
-          <li>Participated in technical problem-solving and deployment tasks.</li>
-          <li>Collaborated with development teams to improve system functionality and operational workflows.</li>
-          <li>Gained hands-on experience with infrastructure management, networking, and system support.</li>
+          <li>Administered and troubleshot Linux servers in a production environment, investigating
+              system and service logs to identify the root cause of availability and configuration issues.</li>
+          <li>Supported authentication and access-management workflows, including user access
+              configuration and permission reviews across internal systems.</li>
+          <li>Maintained and integrated Odoo-based backend systems, working with APIs and internal
+              services to keep business-critical workflows running.</li>
+          <li>Executed deployment and configuration tasks on Linux infrastructure, documenting
+              procedures so they could be repeated reliably by the team.</li>
+          <li>Collaborated with developers and infrastructure staff to diagnose incidents and improve
+              system reliability and operational workflows.</li>
         </ul>
       </div>
     </section>
 
+    <!-- ============ PROJECTS ============ -->
     <section class="r-section">
-      <h2>Projects</h2>
+      <h2>Security Projects</h2>
+
       <div class="r-project">
-        <span class="r-project__name">SIEM System</span> —
-        open-source SIEM for centralized log monitoring and security-event analysis; built the
-        log-collection layer and worked through event correlation to improve visibility and threat
-        detection across network infrastructure.
+        <p><span class="r-project__name">Wazuh SIEM Deployment</span> &mdash; Home Security Lab</p>
+        <p class="r-project__stack">Technologies: Wazuh, Linux, log collection, event correlation, detection rules</p>
+        <ul class="r-points">
+          <li>Deployed an open-source Wazuh SIEM to centralize log collection and provide unified
+              visibility over hosts and network events.</li>
+          <li>Built the log-collection layer and configured agents to forward system, authentication,
+              and application logs into the platform.</li>
+          <li>Wrote and tuned correlation and detection rules to convert raw log noise into actionable
+              security alerts, reducing false positives during triage.</li>
+        </ul>
       </div>
+
       <div class="r-project">
-        <span class="r-project__name">Network Honeypot</span> —
-        honeypot deployed inside the network to lure and observe attackers, turning intrusion attempts
-        into early-warning signal and a safe lab for studying real adversary behavior.
+        <p><span class="r-project__name">Network Honeypot</span> &mdash; Deception and Intrusion Analysis</p>
+        <p class="r-project__stack">Technologies: Honeypot, Linux, intrusion detection, log analysis, network security</p>
+        <ul class="r-points">
+          <li>Deployed a honeypot inside a controlled network segment to attract and record real
+              intrusion attempts.</li>
+          <li>Analyzed captured attacker activity &mdash; scanning, brute-force login attempts, and
+              post-access behavior &mdash; to extract indicators of compromise and early-warning signals.</li>
+          <li>Used the captured data as a safe lab for studying adversary tradecraft and validating
+              detection logic.</li>
+        </ul>
       </div>
+
       <div class="r-project">
-        <span class="r-project__name">Kafka Log Pipeline</span><span class="r-project__tag">in progress</span> —
-        centralized log-processing pipeline on Apache Kafka for scalable ingestion, real-time event
-        visibility, and automation of security-event processing.
+        <p><span class="r-project__name">Kafka Log Pipeline</span> &mdash; Detection Data Engineering (In Progress)</p>
+        <p class="r-project__stack">Technologies: Apache Kafka, Python, Linux, log ingestion, real-time processing</p>
+        <ul class="r-points">
+          <li>Building a centralized log-processing pipeline on Apache Kafka for scalable, real-time
+              ingestion of security events.</li>
+          <li>Designing topic structure for log organization and automating event processing to shorten
+              the time between event generation and analyst visibility.</li>
+        </ul>
       </div>
     </section>
 
+    <!-- ============ EDUCATION ============ -->
     <section class="r-section">
       <h2>Education</h2>
       <div class="r-entry">
-        <div class="r-entry__top">
-          <span class="r-entry__role">B.Sc. Software Engineering</span>
-          <span class="r-entry__date">09/2022 – 07/2026</span>
-        </div>
-        <p class="r-entry__place">Ostim Technical University · Ankara, Turkey</p>
+        <p class="r-entry__role">Bachelor of Science (B.Sc.), Software Engineering</p>
+        <p class="r-entry__meta">Ostim Technical University &mdash; Ankara, Turkey &mdash; Sep 2022 &ndash; Jul 2026</p>
         <ul class="r-points">
-          <li>Focused on cybersecurity and security operations.</li>
+          <li>Coursework focus: cybersecurity, security operations, computer networks, operating
+              systems, and software development.</li>
         </ul>
       </div>
     </section>
+
+    <!--
+      ============ CERTIFICATIONS ============
+      Certifications are a heavily weighted ATS field for Tier 1 SOC roles and
+      are frequently a hard filter. Uncomment this block and list yours as soon
+      as you have one. Highest value for T1, roughly in order:
+        CompTIA Security+  |  Microsoft SC-200  |  Blue Team Level 1 (BTL1)
+        Google Cybersecurity Certificate  |  TryHackMe SOC Level 1 path
+        Splunk Core Certified User  |  CCNA / Network+
+      Include completed learning paths (TryHackMe / LetsDefend / HTB) too —
+      for a junior candidate they count as real, filterable evidence.
+
+    <section class="r-section">
+      <h2>Certifications</h2>
+      <ul class="r-points">
+        <li>[Certification Name] &mdash; [Issuing Body] &mdash; [Month Year]</li>
+        <li>[Certification Name] &mdash; [Issuing Body] &mdash; [Month Year]</li>
+      </ul>
+    </section>
+    -->
+
+    <!-- ============ LANGUAGES ============ -->
+    <section class="r-section">
+      <h2>Languages</h2>
+      <p>Arabic &mdash; Native | English &mdash; Professional working proficiency</p>
+    </section>
+
+    <!-- ============ ADDITIONAL ============ -->
+    <section class="r-section">
+      <h2>Additional Information</h2>
+      <p>
+        Available for 24/7 rotating shift work. Open to relocation across the UAE and GCC, and to
+        roles in Turkey or remote. Work authorization: [STATE YOUR STATUS &mdash; e.g. UAE citizen /
+        Turkish work permit / requires sponsorship].
+      </p>
+    </section>
+
   </main>
 
   <script>
